@@ -11,6 +11,7 @@ import {
     TextInput,
     TouchableWithoutFeedback,
     View,
+    ViewPropTypes as RNViewPropTypes,
 } from 'react-native';
 /* eslint-enable import/no-unresolved, import/extensions */
 import IconToggle from '../IconToggle';
@@ -18,6 +19,7 @@ import isFunction from '../utils/isFunction';
 
 const UIManager = NativeModules.UIManager;
 
+const ViewPropTypes = RNViewPropTypes || View.propTypes;
 
 const propTypes = {
     /**
@@ -65,12 +67,12 @@ const propTypes = {
     * You can overide any style for the component via this prop
     */
     style: PropTypes.shape({
-        container: Animated.View.propTypes.style,
-        leftElementContainer: View.propTypes.style,
+        container: ViewPropTypes.style,
+        leftElementContainer: ViewPropTypes.style,
         leftElement: IconToggle.propTypes.style,
-        centerElementContainer: Animated.View.propTypes.style,
+        centerElementContainer: ViewPropTypes.style,
         titleText: Text.propTypes.style,
-        rightElementContainer: View.propTypes.style,
+        rightElementContainer: ViewPropTypes.style,
         rightElement: IconToggle.propTypes.style,
     }),
     /**
